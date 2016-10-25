@@ -7,25 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		54465EE5DEDACCE40ED35C36 /* libPods-LifeBEAM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6257AD00657DC03D9387F92F /* libPods-LifeBEAM.a */; };
 		7AD58DC31DBFC9E500AE4F60 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD58DC21DBFC9E500AE4F60 /* main.m */; };
 		7AD58DC61DBFC9E500AE4F60 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD58DC51DBFC9E500AE4F60 /* AppDelegate.m */; };
-		7AD58DC91DBFC9E500AE4F60 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD58DC81DBFC9E500AE4F60 /* ViewController.m */; };
 		7AD58DCC1DBFC9E500AE4F60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AD58DCA1DBFC9E500AE4F60 /* Main.storyboard */; };
 		7AD58DCE1DBFC9E500AE4F60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AD58DCD1DBFC9E500AE4F60 /* Assets.xcassets */; };
 		7AD58DD11DBFC9E500AE4F60 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AD58DCF1DBFC9E500AE4F60 /* LaunchScreen.storyboard */; };
+		7AD58DDA1DBFCA1100AE4F60 /* MovieFinderTableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD58DD91DBFCA1100AE4F60 /* MovieFinderTableTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6257AD00657DC03D9387F92F /* libPods-LifeBEAM.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LifeBEAM.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AD58DBE1DBFC9E500AE4F60 /* LifeBEAM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LifeBEAM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AD58DC21DBFC9E500AE4F60 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7AD58DC41DBFC9E500AE4F60 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7AD58DC51DBFC9E500AE4F60 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		7AD58DC71DBFC9E500AE4F60 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		7AD58DC81DBFC9E500AE4F60 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		7AD58DCB1DBFC9E500AE4F60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7AD58DCD1DBFC9E500AE4F60 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7AD58DD01DBFC9E500AE4F60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7AD58DD21DBFC9E500AE4F60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7AD58DD81DBFCA1100AE4F60 /* MovieFinderTableTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieFinderTableTableViewController.h; sourceTree = "<group>"; };
+		7AD58DD91DBFCA1100AE4F60 /* MovieFinderTableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieFinderTableTableViewController.m; sourceTree = "<group>"; };
+		86162C8778AEF3E1AED00FAD /* Pods-LifeBEAM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeBEAM.release.xcconfig"; path = "Pods/Target Support Files/Pods-LifeBEAM/Pods-LifeBEAM.release.xcconfig"; sourceTree = "<group>"; };
+		B52D117013E28BE8607CF2FF /* Pods-LifeBEAM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeBEAM.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LifeBEAM/Pods-LifeBEAM.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +37,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54465EE5DEDACCE40ED35C36 /* libPods-LifeBEAM.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19EFABD861B39744034A9F4A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B52D117013E28BE8607CF2FF /* Pods-LifeBEAM.debug.xcconfig */,
+				86162C8778AEF3E1AED00FAD /* Pods-LifeBEAM.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		7AD58DB51DBFC9E500AE4F60 = {
 			isa = PBXGroup;
 			children = (
 				7AD58DC01DBFC9E500AE4F60 /* LifeBEAM */,
 				7AD58DBF1DBFC9E500AE4F60 /* Products */,
+				19EFABD861B39744034A9F4A /* Pods */,
+				7CEC53287A2C0D8E9F40B360 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,9 +76,9 @@
 			children = (
 				7AD58DC41DBFC9E500AE4F60 /* AppDelegate.h */,
 				7AD58DC51DBFC9E500AE4F60 /* AppDelegate.m */,
-				7AD58DC71DBFC9E500AE4F60 /* ViewController.h */,
-				7AD58DC81DBFC9E500AE4F60 /* ViewController.m */,
 				7AD58DCA1DBFC9E500AE4F60 /* Main.storyboard */,
+				7AD58DD81DBFCA1100AE4F60 /* MovieFinderTableTableViewController.h */,
+				7AD58DD91DBFCA1100AE4F60 /* MovieFinderTableTableViewController.m */,
 				7AD58DCD1DBFC9E500AE4F60 /* Assets.xcassets */,
 				7AD58DCF1DBFC9E500AE4F60 /* LaunchScreen.storyboard */,
 				7AD58DD21DBFC9E500AE4F60 /* Info.plist */,
@@ -79,6 +95,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		7CEC53287A2C0D8E9F40B360 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6257AD00657DC03D9387F92F /* libPods-LifeBEAM.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +110,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7AD58DD51DBFC9E500AE4F60 /* Build configuration list for PBXNativeTarget "LifeBEAM" */;
 			buildPhases = (
+				C06DDEDC3F00A0ADE3D68114 /* [CP] Check Pods Manifest.lock */,
 				7AD58DBA1DBFC9E500AE4F60 /* Sources */,
 				7AD58DBB1DBFC9E500AE4F60 /* Frameworks */,
 				7AD58DBC1DBFC9E500AE4F60 /* Resources */,
+				69DC9E2F8530157B40CB65FE /* [CP] Embed Pods Frameworks */,
+				292AB4476A0A8B5163D4D27F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -146,13 +173,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		292AB4476A0A8B5163D4D27F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LifeBEAM/Pods-LifeBEAM-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		69DC9E2F8530157B40CB65FE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LifeBEAM/Pods-LifeBEAM-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C06DDEDC3F00A0ADE3D68114 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7AD58DBA1DBFC9E500AE4F60 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7AD58DC91DBFC9E500AE4F60 /* ViewController.m in Sources */,
 				7AD58DC61DBFC9E500AE4F60 /* AppDelegate.m in Sources */,
+				7AD58DDA1DBFCA1100AE4F60 /* MovieFinderTableTableViewController.m in Sources */,
 				7AD58DC31DBFC9E500AE4F60 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,6 +344,7 @@
 		};
 		7AD58DD61DBFC9E500AE4F60 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B52D117013E28BE8607CF2FF /* Pods-LifeBEAM.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = PND8ZPJHLJ;
@@ -281,6 +357,7 @@
 		};
 		7AD58DD71DBFC9E500AE4F60 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 86162C8778AEF3E1AED00FAD /* Pods-LifeBEAM.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = PND8ZPJHLJ;
@@ -310,6 +387,7 @@
 				7AD58DD71DBFC9E500AE4F60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

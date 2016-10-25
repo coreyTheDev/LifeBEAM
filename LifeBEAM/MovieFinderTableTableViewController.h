@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MovieFinderTableTableViewController.h
 //  LifeBEAM
 //
 //  Created by Corey Zanotti on 10/25/16.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface MovieFinderTableTableViewController : UITableViewController
 
 @end
-
