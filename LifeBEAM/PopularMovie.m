@@ -24,7 +24,8 @@
              @"popularity": @"popularity",
              @"voteCount": @"vote_count",
              @"video": @"video",
-             @"voteAverage": @"vote_average"
+             @"voteAverage": @"vote_average",
+             @"genreIds":@"genre_ids"
              };
 }
 

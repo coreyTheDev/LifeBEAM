@@ -8,7 +8,7 @@
 
 #import <Mantle/Mantle.h>
 
-@interface PopularMovie : MTLModel
+@interface PopularMovie : MTLModel <MTLJSONSerializing>
 @property (nonatomic, copy, readonly) NSString *posterPath;
 @property (nonatomic, readonly) BOOL adult;
 @property (nonatomic, copy, readonly) NSString *overview;

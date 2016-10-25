@@ -9,6 +9,7 @@
 #import "MovieFinderTableTableViewController.h"
 #import "MovieTableViewCell.h"
 #import <AFNetworking/AFNetworking.h>
+#import "PopularMovie.h"
 
 
 #define MOVIEDB_BASE_URL @"https://api.themoviedb.org"
@@ -59,6 +60,12 @@ struct Movie {
     }
     return _sessionManager;
 }
+-(NSMutableArray *)popularMovieArray {
+    if (!_popularMovieArray) {
+        _popularMovieArray = [NSMutableArray new];
+    }
+    return _popularMovieArray;
+}
 
 #pragma mark - Table view data source
 
@@ -67,16 +74,17 @@ struct Movie {
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return self.popularMovieArray.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CELL_IDENTIFIER forIndexPath:indexPath];
+    MovieTableViewCell *movieCell = [tableView dequeueReusableCellWithIdentifier:CELL_IDENTIFIER forIndexPath:indexPath];
+    PopularMovie *movieForCell = [self.popularMovieArray objectAtIndex:indexPath.row];
     
-    // Configure the cell...
+    movieCell.movieTitleLabel.text = movieForCell.title;
     
-    return cell;
+    return movieCell;
 }
 
 
@@ -137,30 +145,23 @@ struct Movie {
     //fetch request
     [self.sessionManager GET:@"/3/movie/popular" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"successful fetch request");
-        
-//        NSDictionary *postDictionary = (NSDictionary *)responseObject;
-//        //array to store new posts in
-//        NSMutableArray *resultsAsAGFPostObjectsArray = [NSMutableArray new];
+
+        NSDictionary *postDictionary = (NSDictionary *)responseObject;
+
 //        //array to store raw response data in
-//        NSMutableArray *resultsAsRawData = [postDictionary objectForKey:@"forum_posts"];
-//        for (NSDictionary *postDictionary in resultsAsRawData)
-//        {
-//            [resultsAsAGFPostObjectsArray addObject:[[AGFPost alloc] initWithDictionary:postDictionary]];
-//        }
-//        
-//        AGFPaginationObject *pagination = [[AGFPaginationObject alloc] init];
-//        [pagination populateWithDictionary:[postDictionary objectForKey:@"meta"]];
-//        
-//        if([self.delegate respondsToSelector:@selector(fetchFinishedSuccessfullyWithNewPosts:andPagination:)])
-//        {
-//            [self.delegate fetchFinishedSuccessfullyWithNewPosts:resultsAsAGFPostObjectsArray andPagination:pagination];
-//        }
+        NSMutableArray *resultsAsRawData = [postDictionary objectForKey:@"results"];
+        for (NSDictionary *movieJSONDictionary in resultsAsRawData)
+        {
+            NSError *mantleParsingError;
+            PopularMovie *popularMovie = [MTLJSONAdapter modelOfClass:PopularMovie.class fromJSONDictionary:movieJSONDictionary error:&mantleParsingError];
+            if (!mantleParsingError) {
+                [self.popularMovieArray addObject:popularMovie];
+            }
+        }
+        [self.tableView reloadData];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"failed network request");
-//        if ([self.delegate respondsToSelector:@selector(fetchFailedWithError:)])
-//        {
-//            [self.delegate fetchFailedWithError:error];
-//        }
+        //handle errors
     }];
 }
 @end
