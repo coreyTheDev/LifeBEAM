@@ -16,6 +16,7 @@
 		7AD58DDA1DBFCA1100AE4F60 /* MovieFinderTableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD58DD91DBFCA1100AE4F60 /* MovieFinderTableTableViewController.m */; };
 		7AD58DDE1DBFCE8E00AE4F60 /* MovieTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD58DDC1DBFCE8E00AE4F60 /* MovieTableViewCell.m */; };
 		7AD58DDF1DBFCE8E00AE4F60 /* MovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AD58DDD1DBFCE8E00AE4F60 /* MovieTableViewCell.xib */; };
+		7AD58DE21DBFD95C00AE4F60 /* PopularMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD58DE11DBFD95C00AE4F60 /* PopularMovie.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,8 @@
 		7AD58DDB1DBFCE8E00AE4F60 /* MovieTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieTableViewCell.h; sourceTree = "<group>"; };
 		7AD58DDC1DBFCE8E00AE4F60 /* MovieTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieTableViewCell.m; sourceTree = "<group>"; };
 		7AD58DDD1DBFCE8E00AE4F60 /* MovieTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieTableViewCell.xib; sourceTree = "<group>"; };
+		7AD58DE01DBFD95C00AE4F60 /* PopularMovie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopularMovie.h; sourceTree = "<group>"; };
+		7AD58DE11DBFD95C00AE4F60 /* PopularMovie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopularMovie.m; sourceTree = "<group>"; };
 		86162C8778AEF3E1AED00FAD /* Pods-LifeBEAM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeBEAM.release.xcconfig"; path = "Pods/Target Support Files/Pods-LifeBEAM/Pods-LifeBEAM.release.xcconfig"; sourceTree = "<group>"; };
 		B52D117013E28BE8607CF2FF /* Pods-LifeBEAM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeBEAM.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LifeBEAM/Pods-LifeBEAM.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,6 +90,8 @@
 				7AD58DDB1DBFCE8E00AE4F60 /* MovieTableViewCell.h */,
 				7AD58DDC1DBFCE8E00AE4F60 /* MovieTableViewCell.m */,
 				7AD58DDD1DBFCE8E00AE4F60 /* MovieTableViewCell.xib */,
+				7AD58DE01DBFD95C00AE4F60 /* PopularMovie.h */,
+				7AD58DE11DBFD95C00AE4F60 /* PopularMovie.m */,
 				7AD58DCD1DBFC9E500AE4F60 /* Assets.xcassets */,
 				7AD58DCF1DBFC9E500AE4F60 /* LaunchScreen.storyboard */,
 				7AD58DD21DBFC9E500AE4F60 /* Info.plist */,
@@ -237,6 +242,7 @@
 			files = (
 				7AD58DC61DBFC9E500AE4F60 /* AppDelegate.m in Sources */,
 				7AD58DDA1DBFCA1100AE4F60 /* MovieFinderTableTableViewController.m in Sources */,
+				7AD58DE21DBFD95C00AE4F60 /* PopularMovie.m in Sources */,
 				7AD58DDE1DBFCE8E00AE4F60 /* MovieTableViewCell.m in Sources */,
 				7AD58DC31DBFC9E500AE4F60 /* main.m in Sources */,
 			);

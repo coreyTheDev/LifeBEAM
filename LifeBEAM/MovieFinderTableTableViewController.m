@@ -14,7 +14,9 @@
 #define MOVIEDB_BASE_URL @"https://api.themoviedb.org"
 #define API_KEY @"0f1d005fdfbaa78e3b34d1b1a586ef4d"
 
-
+struct Movie {
+    
+};
 
 @interface MovieFinderTableTableViewController ()
 @property (nonatomic, strong) AFHTTPSessionManager *sessionManager;
@@ -135,7 +137,7 @@
     //fetch request
     [self.sessionManager GET:@"/3/movie/popular" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"successful fetch request");
-//        
+        
 //        NSDictionary *postDictionary = (NSDictionary *)responseObject;
 //        //array to store new posts in
 //        NSMutableArray *resultsAsAGFPostObjectsArray = [NSMutableArray new];
