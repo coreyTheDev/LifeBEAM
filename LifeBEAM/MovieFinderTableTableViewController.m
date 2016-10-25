@@ -7,24 +7,36 @@
 //
 
 #import "MovieFinderTableTableViewController.h"
+#import "MovieTableViewCell.h"
+#import <AFNetworking/AFNetworking.h>
 
-#define MOVIE_URL "https://api.themoviedb.org/3"
-#define API_KEY "0f1d005fdfbaa78e3b34d1b1a586ef4d"
+
+#define MOVIEDB_BASE_URL @"https://api.themoviedb.org"
+#define API_KEY @"0f1d005fdfbaa78e3b34d1b1a586ef4d"
+
+
 
 @interface MovieFinderTableTableViewController ()
-
+@property (nonatomic, strong) AFHTTPSessionManager *sessionManager;
+@property (nonatomic, strong) NSMutableArray *popularMovieArray;
+@property (nonatomic) NSInteger currentPage;
+-(void)fetchPopularMoviesForNextPage;
 @end
 
 @implementation MovieFinderTableTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.tableView registerNib:[UINib nibWithNibName:@"MovieTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:CELL_IDENTIFIER];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    self.clearsSelectionOnViewWillAppear = NO;
+    
+    // Uncomment the following line to display voice search button
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.currentPage = 1;
+    [self fetchPopularMoviesForNextPage];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,27 +44,39 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Property Initializers 
+-(AFHTTPSessionManager *)sessionManager {
+    if (!_sessionManager) {
+        _sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:MOVIEDB_BASE_URL]];
+        
+        //initializing response and request serializers
+        _sessionManager.responseSerializer = [AFJSONResponseSerializer serializer];
+        _sessionManager.requestSerializer = [AFJSONRequestSerializer serializer];
+        [_sessionManager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [_sessionManager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    }
+    return _sessionManager;
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    return 10;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CELL_IDENTIFIER forIndexPath:indexPath];
     
     // Configure the cell...
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
@@ -98,4 +122,43 @@
 }
 */
 
+
+#pragma mark - Networking methods
+-(void)fetchPopularMoviesForNextPage {
+    
+    //initializing parameters for network call
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    parameters[@"page"] = [NSNumber numberWithInteger:self.currentPage];
+    parameters[@"language"] = @"en-US";
+    parameters[@"api_key"] = API_KEY;
+    
+    //fetch request
+    [self.sessionManager GET:@"/3/movie/popular" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"successful fetch request");
+//        
+//        NSDictionary *postDictionary = (NSDictionary *)responseObject;
+//        //array to store new posts in
+//        NSMutableArray *resultsAsAGFPostObjectsArray = [NSMutableArray new];
+//        //array to store raw response data in
+//        NSMutableArray *resultsAsRawData = [postDictionary objectForKey:@"forum_posts"];
+//        for (NSDictionary *postDictionary in resultsAsRawData)
+//        {
+//            [resultsAsAGFPostObjectsArray addObject:[[AGFPost alloc] initWithDictionary:postDictionary]];
+//        }
+//        
+//        AGFPaginationObject *pagination = [[AGFPaginationObject alloc] init];
+//        [pagination populateWithDictionary:[postDictionary objectForKey:@"meta"]];
+//        
+//        if([self.delegate respondsToSelector:@selector(fetchFinishedSuccessfullyWithNewPosts:andPagination:)])
+//        {
+//            [self.delegate fetchFinishedSuccessfullyWithNewPosts:resultsAsAGFPostObjectsArray andPagination:pagination];
+//        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"failed network request");
+//        if ([self.delegate respondsToSelector:@selector(fetchFailedWithError:)])
+//        {
+//            [self.delegate fetchFailedWithError:error];
+//        }
+    }];
+}
 @end
