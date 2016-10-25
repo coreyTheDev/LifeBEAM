@@ -9,4 +9,5 @@ workspace ‘LifeBEAM’
 target ‘LifeBEAM’ do
 pod 'AFNetworking', '~> 2.5.2'
 pod ‘Mantle’, ‘~> 2.1.0’
+pod 'SDWebImage', '~> 3.7.1'
 end

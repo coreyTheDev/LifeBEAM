@@ -16,7 +16,7 @@
                 <frame key="frameInset" width="320" height="84.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TPV-BL-tej">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TPV-BL-tej">
                         <constraints>
                             <constraint firstAttribute="height" constant="75" id="aTb-V1-2IC"/>
                             <constraint firstAttribute="width" constant="75" id="cQn-HM-op4"/>

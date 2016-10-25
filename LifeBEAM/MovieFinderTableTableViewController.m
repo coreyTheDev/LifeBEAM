@@ -8,11 +8,13 @@
 
 #import "MovieFinderTableTableViewController.h"
 #import "MovieTableViewCell.h"
-#import <AFNetworking/AFNetworking.h>
 #import "PopularMovie.h"
+#import <AFNetworking/AFNetworking.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
 
 #define MOVIEDB_BASE_URL @"https://api.themoviedb.org"
+#define CONFIGURATION_URL @"http://image.tmdb.org/t/p/"
 #define API_KEY @"0f1d005fdfbaa78e3b34d1b1a586ef4d"
 
 struct Movie {
@@ -83,7 +85,7 @@ struct Movie {
     PopularMovie *movieForCell = [self.popularMovieArray objectAtIndex:indexPath.row];
     
     movieCell.movieTitleLabel.text = movieForCell.title;
-    
+    [movieCell.movieImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://image.tmdb.org/t/p/w92/%@",movieForCell.posterPath]]];
     return movieCell;
 }
 
