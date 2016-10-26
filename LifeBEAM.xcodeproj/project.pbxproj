@@ -13,7 +13,7 @@
 		7AD58DCC1DBFC9E500AE4F60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AD58DCA1DBFC9E500AE4F60 /* Main.storyboard */; };
 		7AD58DCE1DBFC9E500AE4F60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AD58DCD1DBFC9E500AE4F60 /* Assets.xcassets */; };
 		7AD58DD11DBFC9E500AE4F60 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AD58DCF1DBFC9E500AE4F60 /* LaunchScreen.storyboard */; };
-		7AD58DDA1DBFCA1100AE4F60 /* MovieFinderTableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD58DD91DBFCA1100AE4F60 /* MovieFinderTableTableViewController.m */; };
+		7AD58DDA1DBFCA1100AE4F60 /* MovieFinderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD58DD91DBFCA1100AE4F60 /* MovieFinderViewController.m */; };
 		7AD58DDE1DBFCE8E00AE4F60 /* MovieTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD58DDC1DBFCE8E00AE4F60 /* MovieTableViewCell.m */; };
 		7AD58DDF1DBFCE8E00AE4F60 /* MovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AD58DDD1DBFCE8E00AE4F60 /* MovieTableViewCell.xib */; };
 		7AD58DE21DBFD95C00AE4F60 /* PopularMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD58DE11DBFD95C00AE4F60 /* PopularMovie.m */; };
@@ -29,8 +29,8 @@
 		7AD58DCD1DBFC9E500AE4F60 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7AD58DD01DBFC9E500AE4F60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7AD58DD21DBFC9E500AE4F60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7AD58DD81DBFCA1100AE4F60 /* MovieFinderTableTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieFinderTableTableViewController.h; sourceTree = "<group>"; };
-		7AD58DD91DBFCA1100AE4F60 /* MovieFinderTableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieFinderTableTableViewController.m; sourceTree = "<group>"; };
+		7AD58DD81DBFCA1100AE4F60 /* MovieFinderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieFinderViewController.h; sourceTree = "<group>"; };
+		7AD58DD91DBFCA1100AE4F60 /* MovieFinderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieFinderViewController.m; sourceTree = "<group>"; };
 		7AD58DDB1DBFCE8E00AE4F60 /* MovieTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieTableViewCell.h; sourceTree = "<group>"; };
 		7AD58DDC1DBFCE8E00AE4F60 /* MovieTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieTableViewCell.m; sourceTree = "<group>"; };
 		7AD58DDD1DBFCE8E00AE4F60 /* MovieTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieTableViewCell.xib; sourceTree = "<group>"; };
@@ -85,8 +85,8 @@
 				7AD58DC41DBFC9E500AE4F60 /* AppDelegate.h */,
 				7AD58DC51DBFC9E500AE4F60 /* AppDelegate.m */,
 				7AD58DCA1DBFC9E500AE4F60 /* Main.storyboard */,
-				7AD58DD81DBFCA1100AE4F60 /* MovieFinderTableTableViewController.h */,
-				7AD58DD91DBFCA1100AE4F60 /* MovieFinderTableTableViewController.m */,
+				7AD58DD81DBFCA1100AE4F60 /* MovieFinderViewController.h */,
+				7AD58DD91DBFCA1100AE4F60 /* MovieFinderViewController.m */,
 				7AD58DDB1DBFCE8E00AE4F60 /* MovieTableViewCell.h */,
 				7AD58DDC1DBFCE8E00AE4F60 /* MovieTableViewCell.m */,
 				7AD58DDD1DBFCE8E00AE4F60 /* MovieTableViewCell.xib */,
@@ -241,7 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AD58DC61DBFC9E500AE4F60 /* AppDelegate.m in Sources */,
-				7AD58DDA1DBFCA1100AE4F60 /* MovieFinderTableTableViewController.m in Sources */,
+				7AD58DDA1DBFCA1100AE4F60 /* MovieFinderViewController.m in Sources */,
 				7AD58DE21DBFD95C00AE4F60 /* PopularMovie.m in Sources */,
 				7AD58DDE1DBFCE8E00AE4F60 /* MovieTableViewCell.m in Sources */,
 				7AD58DC31DBFC9E500AE4F60 /* main.m in Sources */,

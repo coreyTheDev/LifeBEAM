@@ -6,25 +6,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Movie Finder-->
-        <scene sceneID="Wge-VE-neV">
-            <objects>
-                <tableViewController id="VYd-Fv-VWH" customClass="MovieFinderTableTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" sectionHeaderHeight="1" sectionFooterHeight="1" id="kop-9F-XGy">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <connections>
-                            <outlet property="dataSource" destination="VYd-Fv-VWH" id="AkR-NY-5Ow"/>
-                            <outlet property="delegate" destination="VYd-Fv-VWH" id="eCe-PY-mOs"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Movie Finder" id="9aG-I4-jPJ"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="asE-Id-wn6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="677" y="41"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="0s9-6W-bqe">
             <objects>
@@ -34,12 +15,49 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="VYd-Fv-VWH" kind="relationship" relationship="rootViewController" id="tVm-CC-147"/>
+                        <segue destination="Kdd-1m-UWT" kind="relationship" relationship="rootViewController" id="9Yj-7q-4GN"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gYM-Ov-5Wk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-276" y="41"/>
+        </scene>
+        <!--Movie Finder-->
+        <scene sceneID="0K4-Ui-X5t">
+            <objects>
+                <viewController id="Kdd-1m-UWT" customClass="MovieFinderViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RWj-mp-dzM"/>
+                        <viewControllerLayoutGuide type="bottom" id="Bia-xM-Pzn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3tT-fz-IYh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="k7T-Eg-6nc">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Kdd-1m-UWT" id="AUH-bs-UaK"/>
+                                    <outlet property="delegate" destination="Kdd-1m-UWT" id="LnY-tB-c8e"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Bia-xM-Pzn" firstAttribute="top" secondItem="k7T-Eg-6nc" secondAttribute="bottom" id="RWL-Nf-sy7"/>
+                            <constraint firstAttribute="trailing" secondItem="k7T-Eg-6nc" secondAttribute="trailing" id="Rgn-MV-ZmG"/>
+                            <constraint firstItem="k7T-Eg-6nc" firstAttribute="leading" secondItem="3tT-fz-IYh" secondAttribute="leading" id="tb1-v3-1wK"/>
+                            <constraint firstItem="k7T-Eg-6nc" firstAttribute="top" secondItem="RWj-mp-dzM" secondAttribute="bottom" constant="-64" id="xea-yI-3Wy"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Movie Finder" id="4Ya-Zq-s1M"/>
+                    <connections>
+                        <outlet property="tableView" destination="k7T-Eg-6nc" id="LiH-dC-0Tg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KUd-kq-k5r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="429.60000000000002" y="40.929535232383813"/>
         </scene>
     </scenes>
 </document>

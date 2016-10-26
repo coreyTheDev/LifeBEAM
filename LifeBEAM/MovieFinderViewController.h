@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MovieFinderTableTableViewController : UITableViewController
+@interface MovieFinderViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
