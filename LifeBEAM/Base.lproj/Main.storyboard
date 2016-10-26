@@ -53,11 +53,40 @@
                     <navigationItem key="navigationItem" title="Movie Finder" id="4Ya-Zq-s1M"/>
                     <connections>
                         <outlet property="tableView" destination="k7T-Eg-6nc" id="LiH-dC-0Tg"/>
+                        <segue destination="7eT-eG-TiO" kind="show" identifier="showMovieDetails" id="e0I-dZ-P1I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KUd-kq-k5r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="429.60000000000002" y="40.929535232383813"/>
+        </scene>
+        <!--Movie Detail Table View Controller-->
+        <scene sceneID="xum-VD-WdH">
+            <objects>
+                <tableViewController id="7eT-eG-TiO" customClass="MovieDetailTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="8K7-Cx-ESb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="eST-xs-dtW">
+                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eST-xs-dtW" id="Mni-lw-5Qf">
+                                    <frame key="frameInset" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="7eT-eG-TiO" id="6he-jy-KMP"/>
+                            <outlet property="delegate" destination="7eT-eG-TiO" id="Q9W-Ay-NKC"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WVr-wg-Gkz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1121" y="39"/>
         </scene>
     </scenes>
 </document>
