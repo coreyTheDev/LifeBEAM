@@ -17,15 +17,14 @@
 #define CONFIGURATION_URL @"http://image.tmdb.org/t/p/"
 #define API_KEY @"0f1d005fdfbaa78e3b34d1b1a586ef4d"
 
-struct Movie {
-    
-};
 
 @interface MovieFinderTableTableViewController ()
 @property (nonatomic, strong) AFHTTPSessionManager *sessionManager;
 @property (nonatomic, strong) NSMutableArray *popularMovieArray;
+@property (nonatomic, strong) NSMutableDictionary *genreDictionary;
 @property (nonatomic) NSInteger currentPage;
 -(void)fetchPopularMoviesForNextPage;
+-(void)fetchAllGenres;
 @end
 
 @implementation MovieFinderTableTableViewController
@@ -42,6 +41,7 @@ struct Movie {
     
     self.currentPage = 1;
     [self fetchPopularMoviesForNextPage];
+    [self fetchAllGenres];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -68,6 +68,12 @@ struct Movie {
     }
     return _popularMovieArray;
 }
+-(NSMutableDictionary *)genreDictionary {
+    if (!_genreDictionary) {
+        _genreDictionary = [NSMutableDictionary new];
+    }
+    return _genreDictionary;
+}
 
 #pragma mark - Table view data source
 
@@ -86,6 +92,21 @@ struct Movie {
     
     movieCell.movieTitleLabel.text = movieForCell.title;
     [movieCell.movieImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://image.tmdb.org/t/p/w92/%@",movieForCell.posterPath]]];
+    
+    //self.genreDictionary will be initialized on first population of the genres from the networking response
+    if (self.genreDictionary) {
+        NSString *genreString = @"";
+        for (NSNumber *genreId in movieForCell.genreIds) {
+            NSString *genreName = [self.genreDictionary objectForKey:genreId];
+            if (genreName) {
+                if ([genreString isEqualToString:@""])
+                    genreString = genreName;
+                else
+                    genreString = [NSString stringWithFormat:@"%@, %@", genreString, genreName];
+            }
+        }
+        movieCell.movieGenreLabel.text = genreString;
+    }
     return movieCell;
 }
 
@@ -148,10 +169,10 @@ struct Movie {
     [self.sessionManager GET:@"/3/movie/popular" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"successful fetch request");
 
-        NSDictionary *postDictionary = (NSDictionary *)responseObject;
+        NSDictionary *responseDictionary = (NSDictionary *)responseObject;
 
 //        //array to store raw response data in
-        NSMutableArray *resultsAsRawData = [postDictionary objectForKey:@"results"];
+        NSMutableArray *resultsAsRawData = [responseDictionary objectForKey:@"results"];
         for (NSDictionary *movieJSONDictionary in resultsAsRawData)
         {
             NSError *mantleParsingError;
@@ -159,6 +180,31 @@ struct Movie {
             if (!mantleParsingError) {
                 [self.popularMovieArray addObject:popularMovie];
             }
+        }
+        [self.tableView reloadData];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"failed network request");
+        //handle errors
+    }];
+}
+
+-(void)fetchAllGenres {
+    //initializing parameters for network call
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    parameters[@"api_key"] = API_KEY;
+    
+    //fetch request
+    [self.sessionManager GET:@"/3/genre/movie/list" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"successful fetch request");
+        
+        NSDictionary *responseDictionary = (NSDictionary *)responseObject;
+        
+        NSMutableArray *genresArray = [responseDictionary objectForKey:@"genres"];
+        for (NSDictionary *genreDictionary in genresArray)
+        {
+            NSString *genreName = [genreDictionary objectForKey:@"name"];
+            NSNumber *genreId = [genreDictionary objectForKey:@"id"];
+            [self.genreDictionary setObject:genreName forKey:genreId];
         }
         [self.tableView reloadData];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
