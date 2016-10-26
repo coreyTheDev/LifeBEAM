@@ -12,6 +12,8 @@
 #import "PopularMovie.h"
 #import <AFNetworking/AFNetworking.h>
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <SVPullToRefresh/SVPullToRefresh.h>
+
 
 
 #define MOVIEDB_BASE_URL @"https://api.themoviedb.org"
@@ -25,6 +27,7 @@
 @property (nonatomic, strong) NSMutableDictionary *genreDictionary;
 @property (nonatomic, strong) UIActivityIndicatorView *loadingIndicator;
 @property (nonatomic) NSInteger currentPage;
+@property (nonatomic) NSInteger totalPages;
 -(void)fetchPopularMoviesForNextPage;
 -(void)fetchAllGenres;
 @end
@@ -35,13 +38,23 @@
     [super viewDidLoad];
     [self.tableView registerNib:[UINib nibWithNibName:@"MovieTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:CELL_IDENTIFIER];
     
-    // Uncomment the following line to display voice search button
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
     self.currentPage = 1;
+    self.totalPages = -1;
     [self fetchPopularMoviesForNextPage];
     [self fetchAllGenres];
     [self showLoadingIndicator];
+    
+    __weak MovieFinderViewController *weakSelf = self;
+    [self.tableView addInfiniteScrollingWithActionHandler:^{
+        if (weakSelf.currentPage < weakSelf.totalPages)
+        {
+            [weakSelf fetchPopularMoviesForNextPage];
+            [weakSelf.tableView.infiniteScrollingView startAnimating];
+        } else
+        {
+            [weakSelf.tableView.infiniteScrollingView stopAnimating];
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -158,6 +171,9 @@
             }
         }
         [self hideLoadingIndicator];
+        [self.tableView.infiniteScrollingView stopAnimating];
+        self.totalPages = ((NSNumber *)[responseDictionary objectForKey:@"total_pages"]).integerValue;
+        self.currentPage ++;
         [self.tableView reloadData];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"failed network request");
