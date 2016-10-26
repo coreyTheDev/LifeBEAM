@@ -100,8 +100,8 @@
     movieCell.movieTitleLabel.text = movieForCell.title;
     [movieCell.movieImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://image.tmdb.org/t/p/w92/%@",movieForCell.posterPath]]];
     
-    //self.genreDictionary will be initialized on first population of the genres from the networking response
-    if (self.genreDictionary) {
+    //_genreDictionary will be initialized on first population of the genres from the networking response
+    if (_genreDictionary) {
         NSString *genreString = @"";
         for (NSNumber *genreId in movieForCell.genreIds) {
             NSString *genreName = [self.genreDictionary objectForKey:genreId];
@@ -148,8 +148,8 @@
         NSDictionary *responseDictionary = (NSDictionary *)responseObject;
 
 //        //array to store raw response data in
-        NSMutableArray *resultsAsRawData = [responseDictionary objectForKey:@"results"];
-        for (NSDictionary *movieJSONDictionary in resultsAsRawData)
+        NSMutableArray *resultsArray = [responseDictionary objectForKey:@"results"];
+        for (NSDictionary *movieJSONDictionary in resultsArray)
         {
             NSError *mantleParsingError;
             PopularMovie *popularMovie = [MTLJSONAdapter modelOfClass:PopularMovie.class fromJSONDictionary:movieJSONDictionary error:&mantleParsingError];

@@ -41,8 +41,10 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="wwx-ik-ubg"/>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="wwx-ik-ubg" firstAttribute="top" secondItem="69G-Jm-qUY" secondAttribute="bottom" constant="8" id="1P7-zd-FGD"/>
                     <constraint firstItem="5Sv-PF-2JP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="5Q5-Ie-6JS"/>
                     <constraint firstItem="ZWC-d0-dIr" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="5yy-OZ-ZvE"/>
                     <constraint firstAttribute="trailingMargin" secondItem="69G-Jm-qUY" secondAttribute="trailing" id="CKB-D6-2xw"/>
@@ -54,6 +56,7 @@
                     <constraint firstItem="Xkp-9L-Zzk" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="Oh6-Bp-KbG"/>
                     <constraint firstItem="Xkp-9L-Zzk" firstAttribute="top" secondItem="69G-Jm-qUY" secondAttribute="bottom" constant="8" id="Q07-SH-9pp"/>
                     <constraint firstItem="69G-Jm-qUY" firstAttribute="top" secondItem="ZWC-d0-dIr" secondAttribute="bottom" constant="25" id="QFo-6d-J1m"/>
+                    <constraint firstItem="wwx-ik-ubg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="T3U-d0-JtT"/>
                     <constraint firstItem="ZWC-d0-dIr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="X4g-hA-BOB"/>
                     <constraint firstItem="Xkp-9L-Zzk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="aoS-qE-IbB"/>
                     <constraint firstItem="Bqf-0k-Mje" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="mqw-74-hfC"/>
@@ -62,6 +65,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="castLabel" destination="Xkp-9L-Zzk" id="laL-3d-QEG"/>
+                <outlet property="loadingIndicator" destination="wwx-ik-ubg" id="SCv-sO-1c8"/>
                 <outlet property="overviewLabel" destination="ZWC-d0-dIr" id="ZSx-2E-mBx"/>
                 <outlet property="posterImageView" destination="Bqf-0k-Mje" id="cR7-h4-7aQ"/>
             </connections>
