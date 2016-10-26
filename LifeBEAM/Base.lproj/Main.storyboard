@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -41,17 +42,49 @@
                                     <outlet property="delegate" destination="Kdd-1m-UWT" id="LnY-tB-c8e"/>
                                 </connections>
                             </tableView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eZv-j8-Uiv">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Communication Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DCC-JS-2PI">
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vmQ-PA-oVM">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="0ug-xj-CXL"/>
+                                            <constraint firstAttribute="width" constant="108" id="4Qc-sd-Vqv"/>
+                                        </constraints>
+                                        <state key="normal" title="Retry"/>
+                                        <connections>
+                                            <action selector="reloadMovies:" destination="Kdd-1m-UWT" eventType="touchUpInside" id="VeZ-dT-oaq"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="vmQ-PA-oVM" firstAttribute="centerX" secondItem="eZv-j8-Uiv" secondAttribute="centerX" id="CFc-wJ-0W2"/>
+                                    <constraint firstAttribute="bottom" secondItem="vmQ-PA-oVM" secondAttribute="bottom" constant="18" id="Tdg-9n-orH"/>
+                                    <constraint firstAttribute="trailing" secondItem="DCC-JS-2PI" secondAttribute="trailing" id="gko-CI-85W"/>
+                                    <constraint firstItem="vmQ-PA-oVM" firstAttribute="top" secondItem="DCC-JS-2PI" secondAttribute="bottom" constant="29" id="kYz-9j-fN4"/>
+                                    <constraint firstItem="DCC-JS-2PI" firstAttribute="top" secondItem="eZv-j8-Uiv" secondAttribute="top" constant="30" id="vyr-lS-iRj"/>
+                                    <constraint firstItem="DCC-JS-2PI" firstAttribute="leading" secondItem="eZv-j8-Uiv" secondAttribute="leading" id="wLw-5t-Pvh"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="eZv-j8-Uiv" firstAttribute="centerY" secondItem="3tT-fz-IYh" secondAttribute="centerY" id="1nH-zk-FGh"/>
+                            <constraint firstItem="eZv-j8-Uiv" firstAttribute="leading" secondItem="3tT-fz-IYh" secondAttribute="leadingMargin" id="Cep-bC-dMd"/>
                             <constraint firstItem="Bia-xM-Pzn" firstAttribute="top" secondItem="k7T-Eg-6nc" secondAttribute="bottom" id="RWL-Nf-sy7"/>
                             <constraint firstAttribute="trailing" secondItem="k7T-Eg-6nc" secondAttribute="trailing" id="Rgn-MV-ZmG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eZv-j8-Uiv" secondAttribute="trailing" id="kab-4n-MTI"/>
                             <constraint firstItem="k7T-Eg-6nc" firstAttribute="leading" secondItem="3tT-fz-IYh" secondAttribute="leading" id="tb1-v3-1wK"/>
                             <constraint firstItem="k7T-Eg-6nc" firstAttribute="top" secondItem="RWj-mp-dzM" secondAttribute="bottom" constant="-64" id="xea-yI-3Wy"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Movie Finder" id="4Ya-Zq-s1M"/>
                     <connections>
+                        <outlet property="errorView" destination="eZv-j8-Uiv" id="j3Q-Mb-GM5"/>
                         <outlet property="tableView" destination="k7T-Eg-6nc" id="LiH-dC-0Tg"/>
                         <segue destination="7eT-eG-TiO" kind="show" identifier="showMovieDetails" id="e0I-dZ-P1I"/>
                     </connections>

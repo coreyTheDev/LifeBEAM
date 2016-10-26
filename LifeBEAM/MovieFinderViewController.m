@@ -177,7 +177,8 @@
         [self.tableView reloadData];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"failed network request");
-        //handle errors
+        self.errorView.hidden = NO;
+        [self hideLoadingIndicator];
     }];
 }
 
@@ -202,12 +203,10 @@
         [self.tableView reloadData];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"failed network request");
-        //handle errors
     }];
 }
 
 #pragma mark UI Methods
-//TODO: Show loading indicator
 -(void)showLoadingIndicator
 {
     [self.view addSubview:self.loadingIndicator];
@@ -218,5 +217,13 @@
 {
     [self.loadingIndicator stopAnimating];
     [self.loadingIndicator removeFromSuperview];
+}
+- (IBAction)reloadMovies:(id)sender {
+    self.currentPage = 1;
+    self.totalPages = -1;
+    self.popularMovieArray = [NSMutableArray new];
+    [self showLoadingIndicator];
+    [self fetchPopularMoviesForNextPage];
+    self.errorView.hidden = YES;
 }
 @end
